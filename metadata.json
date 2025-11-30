@@ -1,0 +1,5 @@
+{
+  "name": "NeuroReader lector de pdf",
+  "description": "A refined document reader for PDF and Word files featuring sweet, neural-quality text-to-speech powered by Gemini.",
+  "requestFramePermissions": []
+}
