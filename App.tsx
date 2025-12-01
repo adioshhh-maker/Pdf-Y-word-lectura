@@ -1,4 +1,4 @@
-import React, { useState, ReactNode, ErrorInfo } from 'react';
+import React, { Component, useState, ReactNode, ErrorInfo } from 'react';
 import FileUpload from './components/FileUpload';
 import DocumentReader from './components/DocumentReader';
 import { parseFile } from './services/documentParser';
@@ -15,11 +15,14 @@ interface ErrorBoundaryState {
 }
 
 // Error Boundary to prevent white screen crashes
-class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
-  public state: ErrorBoundaryState = {
-    hasError: false,
-    error: null
-  };
+class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
+  constructor(props: ErrorBoundaryProps) {
+    super(props);
+    this.state = {
+      hasError: false,
+      error: null
+    };
+  }
 
   static getDerivedStateFromError(error: Error): ErrorBoundaryState {
     return { hasError: true, error };
